@@ -147,6 +147,7 @@ img {
 .actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-top: 1.8rem;
   flex-wrap: wrap;
@@ -248,11 +249,22 @@ img {
   border-radius: 50%;
   display: grid;
   place-items: center;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff;
   font-weight: 700;
   font-size: 1.6rem;
   margin-bottom: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 24px rgba(91, 44, 255, 0.2);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .profile-card h2,
@@ -557,18 +569,78 @@ img {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .nav {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.8rem;
   }
 
   .nav-links {
-    gap: 0.7rem 1rem;
+    gap: 0.65rem 0.9rem;
   }
 
   .hero {
-    padding-top: 3rem;
+    padding: 3.2rem 0 2.5rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+  }
+
+  .lead {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .mini-stats {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+
+  .mini-stats li {
+    flex: 1 1 32%;
+    min-width: 0;
+  }
+
+  .profile-card {
+    padding: 1.4rem 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand {
+    font-size: 1.08rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .section {
+    padding: 3.2rem 0;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.9rem, 9vw, 2.7rem);
+  }
+
+  .lead {
+    font-size: 0.94rem;
+    line-height: 1.7;
   }
 
   .actions {
@@ -578,5 +650,65 @@ img {
 
   .btn {
     width: 100%;
+  }
+
+  .mini-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .mini-stats li {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 0.9rem;
+  }
+
+  .contact-list li {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .contact-box {
+    padding: 1.3rem 1.1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    width: min(100% - 1rem, 1100px);
+  }
+
+  .nav-links {
+    row-gap: 0.5rem;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+  }
+
+  .section-heading h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.75rem, 8vw, 2.3rem);
+    line-height: 1.15;
+  }
+
+  .lead {
+    font-size: 0.9rem;
+  }
+
+  .timeline-item > div,
+  .about-card,
+  .skill-card,
+  .project-card {
+    padding: 1rem;
   }
 }
